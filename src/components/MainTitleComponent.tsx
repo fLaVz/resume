@@ -8,7 +8,7 @@ interface maintTitleProps {
   opacity: number;
 }
 
-const MainTitleComponent = (props) => {
+const MainTitleComponent = () => {
   const [maintTitleProps, setMaintTitleProps] = useState<maintTitleProps>({
     marginTop: "100px",
     position: "fixed",
