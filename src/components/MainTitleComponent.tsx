@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
+import useScrollPostion from '../hooks/useScrollPos';
+import useElementOnScreen from '../hooks/useElementOnScreen';
+import JobComponent from './JobComponent';
 
 interface maintTitleProps {
-  marginTop: string;
+  marginTop: any;
   position: string;
   color: string;
   opacity: number;
@@ -10,8 +13,8 @@ interface maintTitleProps {
 
 const MainTitleComponent = () => {
   const [maintTitleProps, setMaintTitleProps] = useState<maintTitleProps>({
-    marginTop: "100px",
-    position: "fixed",
+    marginTop: '20vh',
+    position: "static",
     color: "white",
     opacity: 0,
   });
@@ -23,7 +26,7 @@ const MainTitleComponent = () => {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: ${maintTitleProps.marginTop};
+    padding-top: ${maintTitleProps.marginTop};
   `;
 
   const H1Fixed = styled.h1`
@@ -37,25 +40,33 @@ const MainTitleComponent = () => {
     animation-fill-mode: forwards;
     line-height: 1;
     font-size: 10em;
-    background-image: linear-gradient(45deg, #294fd6, #46c6f5);
+    font-weight: 900;
+    color: white;
+  `;
+
+  const SubTitle = styled.h2`
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    };
+    opacity: 0;
+    font-size: 8em;
+    font-weight: 900;
+    animation: 1s ease-out 2.5s forwards fadeIn 1;
+    color: white;
+  `;
+
+  const NameColored = styled.span`
+    background-image: linear-gradient(45deg, #ff7700, #9546f5);
     background-clip: text;
     color: transparent;
-  `;
-  
-  const UnderLine = styled.div`
-    @keyframes growRight {
-      from { width: 0px; }
-      to   { width: 300px; }
-    };
-    animation: 1s ease-out 2s forwards growRight;
-    height: 20px;
-    background-color: #5672d7;
   `;
 
   return (
     <BlockHi>
-      <H1Fixed>Hi!</H1Fixed>
-      <UnderLine></UnderLine>
+      <H1Fixed>Hi</H1Fixed>
+      <SubTitle>My name is <NameColored>Julien</NameColored>.</SubTitle>
+      <JobComponent />
     </BlockHi>
   )
 } 
