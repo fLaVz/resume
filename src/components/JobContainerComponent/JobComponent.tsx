@@ -41,9 +41,7 @@ const JobComponent = () => {
   }, []);
 
   return (
-    <>
-      <Job>And I do <JobSpan spanVisible={expanded}>stuff</JobSpan></Job>
-    </>
+    <Job>And I do <JobSpan spanVisible={expanded}>stuff</JobSpan></Job>
   )
 }
 
