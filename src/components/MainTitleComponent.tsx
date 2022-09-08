@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import useScrollPostion from '../hooks/useScrollPos';
 import useElementOnScreen from '../hooks/useElementOnScreen';
-import JobComponent from './JobComponent';
+import JobComponent from './JobContainerComponent/JobContainerComponent';
+import SubtitleJobComponent from "./JobContainerComponent/SubtitleJobComponent";
+import JobContainerComponent from "./JobContainerComponent/JobContainerComponent";
 
 interface maintTitleProps {
   marginTop: any;
@@ -36,7 +38,7 @@ const MainTitleComponent = () => {
     };
     margin: 0;
     opacity: 0;
-    animation: 2s ease-out 1s fadein;
+    animation: 1s ease-out .5s fadein;
     animation-fill-mode: forwards;
     line-height: 1;
     font-size: 10em;
@@ -52,7 +54,7 @@ const MainTitleComponent = () => {
     opacity: 0;
     font-size: 8em;
     font-weight: 900;
-    animation: 1s ease-out 2.5s forwards fadeIn 1;
+    animation: 1s ease-out 1.5s forwards fadeIn 1;
     color: white;
   `;
 
@@ -66,7 +68,7 @@ const MainTitleComponent = () => {
     <BlockHi>
       <H1Fixed>Hi</H1Fixed>
       <SubTitle>My name is <NameColored>Julien</NameColored>.</SubTitle>
-      <JobComponent />
+      <JobContainerComponent />
     </BlockHi>
   )
 } 
